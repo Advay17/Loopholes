@@ -247,7 +247,7 @@ screen quick_menu():
             style_prefix "quick"
 
             xalign 0.5
-            yalign 1
+            yalign 1.0
 
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
@@ -264,7 +264,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -922,9 +922,6 @@ screen history():
         if not _history_list:
             label _("The dialogue history is empty.")
 
-##Notepad Screen####
-screen notepad():
-    tag menu
 
 ## This determines what tags are allowed to be displayed on the history screen.
 

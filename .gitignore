@@ -36,6 +36,7 @@ lint.txt
 saves/
 tmp/
 cache/
+template/
 
 # Executables.
 /renpy.exe
