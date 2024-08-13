@@ -7,8 +7,15 @@ init python:
             self.sub_text=sub_text
             self.img=img
     pass
+    class CharacterData():
+        def __init__(self, name, desc, img):
+            self.name=name
+            self.desc=desc
+            self.img=img
 define luggage = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. ", "badge")
 default document_list=[luggage]
+define saul_goodman = CharacterData("Saul Goodman", "Better, call, Saul. Better, call, Saul. Better, call, Saul.", "jimmy")
+default character_list = [saul_goodman]
 screen under_menu():
     zorder 50
     frame:
@@ -21,7 +28,7 @@ screen under_menu():
             action [Hide("under_menu"), Show("documents")]
         textbutton "Characters":
             style "quick_menu_button"
-            action Notify("You clicked the other button.")
+            action [Hide("under_menu"), Show("characters")]
         textbutton "Loophole":
             style "quick_menu_button"
             action Notify("You clicked the other button.")
@@ -63,6 +70,7 @@ style gameplay_menu:
     xalign 0.5
     yalign 0.5
     xsize 1600
+    ysize 890
     
     
 screen documents():
@@ -139,6 +147,52 @@ screen document_info(name, sub_text):
                 frame:
                     text sub_text
         pass
+
+screen characters():
+    modal True
+    zorder 50
+    frame:
+        style "gameplay_menu"
+        vbox:
+
+            hbox:
+                frame:
+                    xsize 1400
+                    ysize 90
+                    style "gameplay_menu_button"
+                    text "Documents"
+                    xalign 0.5
+                frame:
+                    # xalign -0.182 #don't know why this specific value makes it work, but it does.
+                    xsize 200
+                    xalign 0.9
+                    textbutton "Exit":
+                        ysize 90
+                        style "gameplay_menu_button"
+                        action [Hide("characters"), Show("under_menu")]
+            frame:
+                vpgrid:
+                    rows 1
+                    if len(character_list)>5:
+                        scrollbars "horizontal"
+                    spacing 5
+                    draggable True
+                    mousewheel "horizontal"
+                    for character in character_list:
+                        vbox:
+                            add character.img
+                            frame:
+                                yalign -0.6
+                                xalign 0.5
+                                text character.name
+                            frame:
+                                yalign -0.4
+                                xalign 0.5
+                                text character.desc
+                            xsize 183
+                            ysize 788
+
+
 
 
 
