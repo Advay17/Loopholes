@@ -1,4 +1,14 @@
 ##Screen containing all the buttons in the quick menu
+init python:
+    class Document():
+        def __init__(self, name, desc, img):
+            self.name=name
+            self.desc=desc
+            self.img=img
+    pass
+define luggage = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "badge")
+define knife = Document("Knife", "A butter knife, must be a slow death.", "saul goodman")
+default document_list=[luggage, knife]
 screen under_menu():
     frame:
         xalign 0.5 
@@ -8,8 +18,7 @@ screen under_menu():
 
         textbutton "Documents":
             style "quick_menu_button"
-            action Notify("You clicked the button.")
-
+            action Show("documents")
         textbutton "Characters":
             style "quick_menu_button"
             action Notify("You clicked the other button.")
@@ -34,7 +43,28 @@ style quick_menu_button_text:
     hover_color "#ffffff"
 
 screen documents():
-    pass
+    frame:
+        background "black"
+        xalign 0.5
+        yalign 0.5
+        vpgrid:
+            ysize 800
+            scrollbars "vertical"
+            spacing 5
+            draggable True
+            mousewheel True
+            cols 1
+            side_xalign 0.0
+            for document in document_list:
+                button:
+                    hovered background "red"
+                    action Notify("You clicked the other button.")
+                    hbox:
+                        add document.img
+                        vbox:
+                            text document.name
+                            text document.desc
+        pass
 
 
 # screen 
