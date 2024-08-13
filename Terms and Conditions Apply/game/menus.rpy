@@ -7,7 +7,7 @@ init python:
             self.img=img
     pass
 define luggage = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "badge")
-define knife = Document("Knife", "A butter knife, must be a slow death.", "saul goodman")
+define knife = Document("Knife", "A butter knife, must be a slow death.                              ", "saul goodman")
 default document_list=[luggage, knife]
 screen under_menu():
     frame:
@@ -28,6 +28,9 @@ screen under_menu():
         textbutton "History":
             style "quick_menu_button"
             action ShowMenu("history")
+        textbutton "Notepad":
+            style "quick_menu_button"
+            action ShowMenu("history")
 
 style quick_menu_button:
     # idle_background Frame("slot idle background", 12, 12)
@@ -41,29 +44,45 @@ style quick_menu_button:
 style quick_menu_button_text:
     idle_color "#c0c0c0"
     hover_color "#ffffff"
-
+style gameplay_menu:
+    background "black"
+    xalign 0.5
+    yalign 0.5
+    xsize 1600
 screen documents():
+    modal True
+    zorder 99
     frame:
-        background "black"
-        xalign 0.5
-        yalign 0.5
-        vpgrid:
-            ysize 800
-            scrollbars "vertical"
-            spacing 5
-            draggable True
-            mousewheel True
-            cols 1
-            side_xalign 0.0
-            for document in document_list:
-                button:
-                    hovered background "red"
-                    action Notify("You clicked the other button.")
-                    hbox:
-                        add document.img
-                        vbox:
-                            text document.name
-                            text document.desc
+        style "gameplay_menu"
+        vbox:
+            hbox:
+                frame:
+                    xalign 0.5
+                    text "Documents"
+                frame:
+                    textbutton "Exit":
+                        xalign 0.9
+                        style "quick_menu_button"
+            frame:
+                ysize 800
+                vpgrid:
+                    if len(document_list)>5:
+                        scrollbars "vertical"
+                    spacing 5
+                    draggable True
+                    mousewheel True
+                    cols 1
+                    side_xalign 0.0
+                    for document in document_list:
+                        button:
+                            background "#000000"
+                            hover_background "#FF0000"
+                            action Notify("You clicked the other button.")
+                            hbox:
+                                add document.img
+                                vbox:
+                                    text document.name
+                                    text document.desc
         pass
 
 
