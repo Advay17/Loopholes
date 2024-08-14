@@ -1,5 +1,6 @@
+
 ##Screen containing all the buttons in the quick menu
-default notepad_text="asdf"
+default notepad_text=""
 init python:
     class Document():
         def __init__(self, name, desc, sub_text, img):
@@ -266,7 +267,7 @@ screen notepad():
                 input:
                     idle_color "#c0c0c0"
                     hover_color "#ffffff"
-                    value VariableInputValue(notepad_text, returnable=True)
+                    value VariableInputValue("notepad_text", returnable=True)
                     multiline True
                     
 
