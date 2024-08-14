@@ -1,9 +1,9 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Saul Goodman")
+define s = Character("Saul Goodman")
 # The game starts here.
 label start:
     # Show a background. This uses a placeholder by default, but you can
@@ -19,9 +19,9 @@ label start:
 
     # These display lines of dialogue.
 
-    e "I'm Saul Goodman."
+    s "I'm Saul Goodman."
 
-    e "Do you know that you have rights?" with vpunch
+    s "Do you know that you have rights?" with vpunch
 
     # This ends the game.
 

@@ -1,4 +1,5 @@
 ##Screen containing all the buttons in the quick menu
+default notepad_text="asdf"
 init python:
     class Document():
         def __init__(self, name, desc, sub_text, img):
@@ -12,6 +13,8 @@ init python:
             self.name=name
             self.desc=desc
             self.img=img
+define pov = Character("[povname]")
+
 define luggage = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. ", "badge")
 default document_list=[luggage]
 define saul_goodman = CharacterData("Saul Goodman", "Better, call, Saul. Better, call, Saul. Better, call, Saul.", "jimmy")
@@ -31,13 +34,13 @@ screen under_menu():
             action [Hide("under_menu"), Show("characters")]
         textbutton "Loophole":
             style "quick_menu_button"
-            action Notify("You clicked the other button.")
+            action [Hide("under_menu"), Show("loophole")]
         textbutton "History":
             style "quick_menu_button"
             action ShowMenu("history")
         textbutton "Notepad":
             style "quick_menu_button"
-            action ShowMenu("history")
+            action [Hide("under_menu"), Show("notepad")]
 
 style quick_menu_button:
     # idle_background Frame("slot idle background", 12, 12)
@@ -147,14 +150,59 @@ screen document_info(name, sub_text):
                 frame:
                     text sub_text
         pass
-
+screen loophole():
+    modal True
+    zorder 50
+    frame:
+        style "gameplay_menu"
+        vbox:
+            xsize 1600
+            hbox:
+                frame:
+                    xsize 1400
+                    ysize 90
+                    style "gameplay_menu_button"
+                    text "Select a Document"
+                    xalign 0.5
+                frame:
+                    # xalign -0.182 #don't know why this specific value makes it work, but it does.
+                    xsize 200
+                    xalign 0.9
+                    textbutton "Exit":
+                        ysize 90
+                        style "gameplay_menu_button"
+                        action [Hide("loophole"), Show("under_menu")]
+            frame:
+                ysize 720
+                vpgrid:
+                    if len(document_list)>5:
+                        scrollbars "vertical"
+                    spacing 5
+                    draggable True
+                    mousewheel True
+                    cols 1
+                    side_xalign 0.0
+                    for document in document_list:
+                        button:
+                            xsize 1600
+                            background "#000000"
+                            hover_background "#FF0000"
+                            action Notify("Document selected")
+                            hbox:
+                                add document.img
+                                vbox:
+                                    text document.name
+                                    text document.desc
+            textbutton "Confirm?":
+                xalign 0.5
+                style "gameplay_menu_button"
+                action Notify("Document confirmed")
 screen characters():
     modal True
     zorder 50
     frame:
         style "gameplay_menu"
         vbox:
-
             hbox:
                 frame:
                     xsize 1400
@@ -191,7 +239,38 @@ screen characters():
                                 text character.desc
                             xsize 183
                             ysize 788
+screen notepad():
+    modal True
+    zorder 50
+    frame:
+        style "gameplay_menu"
+        vbox:
+            hbox:
+                frame:
+                    xsize 1400
+                    ysize 90
+                    style "gameplay_menu_button"
+                    text "Notepad"
+                    xalign 0.5
+                frame:
+                    # xalign -0.182 #don't know why this specific value makes it work, but it does.
+                    xsize 200
+                    xalign 0.9
+                    textbutton "Exit":
+                        ysize 90
+                        style "gameplay_menu_button"
+                        action [Hide("notepad"), Show("under_menu")]
+            frame:
+                xsize 1600
+                ysize 980
+                input:
+                    idle_color "#c0c0c0"
+                    hover_color "#ffffff"
+                    value VariableInputValue(notepad_text, returnable=True)
+                    multiline True
+                    
 
+        
 
 
 
