@@ -2,26 +2,21 @@
 Justin Case - j
 Player - p
 Courtney Case - c
+Judge - ju
 **Transition-Black Scene
 “””
 Order… order is the basis of existence.
 
-
 The reason the world spins at exactly the speed it does, the reason why physics is a science and not just a question.
-
 
 We, as humans, have our own order. We have rules, laws, regulations to say yes to certain things and no to others.
 
-
 But what if order fails? What if chaos seeps into the perfect constitutions that govern our lives? The chaos of greed, malice? Of humanity?
-
 
 Does one cling to order? Hope that by continuing it, it will return? Even if it can cost some… everything?
 “””
 
-
 **Transition-Fade to court hall
-
 
 show c crying
 c “Dad, I’m scared! I don’t want to go to jail!”
@@ -46,4 +41,25 @@ j “Mr. (playername), if I may take a wild guess, it appears that you don’t s
 p “How’d you know? This is my first case!” 
 j_whisper “So we have a rookie as our defense, wonderful.”
 p “Huh? I didn’t hear you.”
-j “Nothing! Say, if this is the first trial you are participating in, this will be a very new experience to you, yes? Well, my mother, Chlo Z. Case, ”
+j “Nothing!{p=0.3} Say, if this is the first trial you are participating in, this will be a very new experience to you, yes? Well, my mother, Chlo Z. Case, was a judge.”
+j “I’ll be frank, from my experience watching her perform trials… This case isn’t looking too good.”
+p “It isn’t?”
+show j surprised
+j “Haven’t you seen the evidence? Wait, you truly haven’t?”
+p “I, er{p=0.1}, kind of was just assigned to the case with no warning this morning.”
+j_whisper “Damn, this isn’t looking too good.”
+j “Let’s just say that the evidence is stacked against us, and if I have to admit something to you…”
+j “{i}Sigh{\i}...{p=0.2} nevermind. Forget it. But Courtney deserves saving, and you aren’t very experienced.”
+j “I am not a licensed practitioner, but I know how the courts work. So I ask you this: let me advise you.”
+p “What?!”
+j “Me and Courtney will have to be at the defense’s bench with you. When you’re there, I’ll be able to give you advice. I saw it happen all the time with senior practitioners and youths such as yourself.”
+p “I-Thanks! In truth, I’m not really sure I will be able to do as well as you would like…”
+show j smile
+j “Kid, I’ve seen miracles happen at the bench before, battles of wit so great that they would be spoken of for years. In this world, even the impossible becomes possible.”
+show j worried
+j_whisper “Though even the impossible may not be enough…”
+
+**Transition-Fade to Black
+(Add player backstory here)
+**Transition-Fade to Courtroom
+
