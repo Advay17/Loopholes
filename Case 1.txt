@@ -1,0 +1,49 @@
+﻿Characters:
+Justin Case - j
+Player - p
+Courtney Case - c
+**Transition-Black Scene
+“””
+Order… order is the basis of existence.
+
+
+The reason the world spins at exactly the speed it does, the reason why physics is a science and not just a question.
+
+
+We, as humans, have our own order. We have rules, laws, regulations to say yes to certain things and no to others.
+
+
+But what if order fails? What if chaos seeps into the perfect constitutions that govern our lives? The chaos of greed, malice? Of humanity?
+
+
+Does one cling to order? Hope that by continuing it, it will return? Even if it can cost some… everything?
+“””
+
+
+**Transition-Fade to court hall
+
+
+show c crying
+c “Dad, I’m scared! I don’t want to go to jail!”
+show j worried
+j “Don’t worry sweetie, you’ll be completely fine! Our lawyer will make sure that nothing bad happens to you. It will all be okay!”
+j_whisper “If he shows up…” vpunch
+p “Hey! Hey! {i}Pant, Pant.{\i} I made it! Has the trial started?”
+show j surprised
+j_whisper “Oh great, a newbie…”
+show j normal
+j “Hello Mr. (playername). Courtney, this is Mr. (playername). He will be your lawyer.”
+show c crying
+p “Oh, Courtney, er, how are you doing?”
+c “... {i}sniffle.{\i}”
+p “That’s, um, great! I-”
+j “Mr. (playername), can I pull you to the side for a second?”
+p “Sure, that’s completely fine, Mr. …?”
+j “Case. Justin Case.”
+p “Mr. Case! Can I call you Justin?”
+show j serious
+j “Mr. (playername), if I may take a wild guess, it appears that you don’t seem to be a very experienced lawyer?”
+p “How’d you know? This is my first case!” 
+j_whisper “So we have a rookie as our defense, wonderful.”
+p “Huh? I didn’t hear you.”
+j “Nothing! Say, if this is the first trial you are participating in, this will be a very new experience to you, yes? Well, my mother, Chlo Z. Case, ”
