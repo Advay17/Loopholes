@@ -260,7 +260,7 @@ screen notepad():
                     textbutton "Exit":
                         ysize 90
                         style "gameplay_menu_button"
-                        action [Hide("notepad"), Show("under_menu")]
+                        action [Hide("notepad"), Show("under_menu"), Notify(notepad_text)]
             frame:
                 xsize 1600
                 ysize 980
@@ -268,7 +268,12 @@ screen notepad():
                     idle_color "#c0c0c0"
                     hover_color "#ffffff"
                     value VariableInputValue("notepad_text", returnable=True)
+                    copypaste True
                     multiline True
+                    layout "greedy"
+                key "input_enter" action If(renpy.get_screen("documents"), true=NullAction() )
+                    # python:
+                    #     pass
                     
 
         
