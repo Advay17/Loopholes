@@ -3,17 +3,18 @@ Justin Case - j
 Player - p
 Courtney Case - c
 Judge - ju
+Prosecutor - pr
 **Transition-Black Scene
 “””
-Order… order is the basis of existence.
+Order…{p=0.1} order is the basis of existence.
 
 The reason the world spins at exactly the speed it does, the reason why physics is a science and not just a question.
 
 We, as humans, have our own order. We have rules, laws, regulations to say yes to certain things and no to others.
 
-But what if order fails? What if chaos seeps into the perfect constitutions that govern our lives? The chaos of greed, malice? Of humanity?
+But what if order fails? What if chaos seeps into the perfect constitutions that govern our lives? The chaos of greed, malice?{p=0.1} Of humanity?
 
-Does one cling to order? Hope that by continuing it, it will return? Even if it can cost some… everything?
+Does one cling to order? Hope that by continuing it, it will return? Even if it can cost some… {p=0.2}everything?
 “””
 
 **Transition-Fade to court hall
@@ -34,7 +35,7 @@ c “... {i}sniffle.{\i}”
 p “That’s, um, great! I-”
 j “Mr. (playername), can I pull you to the side for a second?”
 p “Sure, that’s completely fine, Mr. …?”
-j “Case. Justin Case.”
+j “Case. Justin Case. I am Courtney’s father.”
 p “Mr. Case! Can I call you Justin?”
 show j serious
 j “Mr. (playername), if I may take a wild guess, it appears that you don’t seem to be a very experienced lawyer?”
@@ -63,3 +64,53 @@ j_whisper “Though even the impossible may not be enough…”
 (Add player backstory here)
 **Transition-Fade to Courtroom
 
+ju “Order in the court! We are here for the trial of Courtney Case. 
+ju “She is charged with accounts of theft, ___, and ___, to which she has pleaded not guilty.”
+p “{i}Those charges wouldn’t get you too harsh of a punishment, especially for a minor…{\i}” 
+show j worried
+p “{i}so why does Mr. Case look so worried?{\i}”
+ju “May the prosecution say its opening statement?”
+pr “””
+Your gracious honor, and members of the jury.
+
+We are here, for another cut and dry case, I hope. It breaks my heart, to see the youths of this generation be so misguided, to perform such acts.
+ 
+The prosecution has gathered various pieces of evidence to support its claims. With them, it is clear that young Ms. Case has committed the various crimes she is accused of. 
+
+The prosecution will also be able to provide motivation as to why Ms. Case has committed the crimes she has. It is a sorry story, and I hope that after this trial, Ms. Case gets the help that she needs.
+“””
+ju “Thank you. Will the defense give its opening statement?”
+p “Ah, yes,{p=0.1} the opening statement! {i}I don’t have an opening statement prepared! What do I do? {\i}”
+j “Psst. I can see that you don’t know what to do. I’d suggest looking at the {color=#DFC57B}documents{\color} in your possession. 
+p “{i}Oh! The case files! They can help me come up with something on the fly!{\i}”
+p “This case is indeed a tragic one, but not because Ms. Case is the criminal! She is in fact a victim of, um,{p=0.06} the poor security of…”
+p “{i}Where did she steal from-, I mean get accused of stealing from, again…? Wait! I just read it in the {color=#DFC57B}documents{\color}! {\i}”
+menu:
+	“Where is Courtney Case being accused of stealing from?”
+	“Jewelry Store”:
+		correct
+	“Bank”:
+		p “Ms. Case is a victim of the poor security of the bank! They obviously falsely accused her of such a terrible crime!”
+		ju “A bank? My case notes don’t mention a bank? Did she rob a bank as well!?” hpunch
+		p “N-no your honor! I must have misspoke!”
+		j “What are you doing!? It’s mistakes like this that sway the court against you”
+		j “Now they have the idea that my daughter robbed a bank in their minds! Check the evidence before jumping to conclusions!”
+		p “I’m sorry! {i}Looks like that was the wrong thing to say. Let me check the {color=#DFC57B}documents{\color} again…{\i}”
+		goto menu
+	“Playground”:
+		p “Ms. Case is a victim of the poor security of the local playground! I’ve never even seen a single security camera around one in my entire life!” hpunch
+		ju “A playground! Are you suggesting that we spend budget money and time setting up surveillance cameras around a playground!”
+		p “Ye- um… {p=0.1}no…”
+		j “What are you doing!? It’s mistakes like this that sway the court against you”
+		j “Now they have the idea that my daughter robbed a playground in their minds! Check the evidence before jumping to conclusions!”
+		p “I’m sorry! {i}Looks like that was the wrong thing to say. Let me check the {color=#DFC57B}documents{\color} again…{\i}”
+		goto menu
+p “Ms. Case is a victim of the poor security of a jewelry store! They have falsely accused her of theft, and their lacking, er, security measures, have failed to find the true culprit!
+j_whisper “Hm. Implying that a theft indeed did happen without knowing all the details, could come to regret that. Bad phrasing as well, even if it does shift the blame from Courtney. {i}Sigh.{\i}”
+p “{i}Is he rating my response? Looks like I didn’t do well…{\i}”
+p “Members of the jury, I ask you to carefully consider her case! She, like all children, has great potential, which would be wasted by whatever punishment inflicted on her. She is merely…”
+p “{i}How old is she? How don’t I know this?{\i}”
+j “It appears that you need information on Courtney. Luckily, you have a file containing information about some of the members involved in this trial, and you can add information about more members as you meet them. It should be labeled {color=#DFC57B}characters{\color}.”
+p “{i}I should check the folder to see Courtney’s age…{\i}
+menu:
+	
