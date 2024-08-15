@@ -5,9 +5,10 @@ Courtney Case - c
 Judge - ju
 Prosecutor - pr
 Ruby Stone - r
+Detective - d
 **Transition-Black Scene
-“””
-Order…{p=0.1} order is the basis of existence.
+"""
+Order...{p=0.1} order is the basis of existence.
 
 The reason the world spins at exactly the speed it does, the reason why physics is a science and not just a question.
 
@@ -15,63 +16,63 @@ We, as humans, have our own order. We have rules, laws, regulations to say yes t
 
 But what if order fails? What if chaos seeps into the perfect constitutions that govern our lives? The chaos of greed, malice?{p=0.1} Of humanity?
 
-Does one cling to order? Hope that by continuing it, it will return? Even if it can cost some… {p=0.2}everything?
-“””
+Does one cling to order? Hope that by continuing it, it will return? Even if it can cost some... {p=0.2}everything?
+"""
 
 **Transition-Fade to court hall
 
 show c crying
-c “Dad, I’m scared! I don’t want to go to jail!”
+c "Dad, I’m scared! I don’t want to go to jail!"
 show j worried
-j “Don’t worry sweetie, you’ll be completely fine! Our lawyer will make sure that nothing bad happens to you. It will all be okay!”
-j_whisper “If he shows up…” vpunch
-p “Hey! Hey! {i}Pant, Pant.{\i} I made it! Has the trial started?”
+j "Don’t worry sweetie, you’ll be completely fine! Our lawyer will make sure that nothing bad happens to you. It will all be okay!"
+j_whisper "If he shows up..." vpunch
+p "Hey! Hey! {i}Pant, Pant.{\i} I made it! Has the trial started?"
 show j surprised
-j_whisper “Oh great, a newbie…”
+j_whisper "Oh great, a newbie..."
 show j normal
-j “Hello Mr. (playername). Courtney, this is Mr. (playername). He will be your lawyer.”
+j "Hello Mr. (playername). Courtney, this is Mr. (playername). He will be your lawyer."
 show c crying
-p “Oh, Courtney, er, how are you doing?”
-c “... {i}sniffle.{\i}”
-p “That’s, um, great! I-”
-j “Mr. (playername), can I pull you to the side for a second?”
-p “Sure, that’s completely fine, Mr. …?”
-j “Case. Justin Case. I am Courtney’s father.”
-p “Mr. Case! Can I call you Justin?”
+p "Oh, Courtney, er, how are you doing?"
+c "... {i}sniffle.{\i}"
+p "That’s, um, great! I-"
+j "Mr. (playername), can I pull you to the side for a second?"
+p "Sure, that’s completely fine, Mr. ...?"
+j "Case. Justin Case. I am Courtney’s father."
+p "Mr. Case! Can I call you Justin?"
 show j serious
-j “Mr. (playername), if I may take a wild guess, it appears that you don’t seem to be a very experienced lawyer?”
-p “How’d you know? This is my first case!” 
-j_whisper “So we have a rookie as our defense, wonderful.”
-p “Huh? I didn’t hear you.”
-j “Nothing!{p=0.3} Say, if this is the first trial you are participating in, this will be a very new experience to you, yes? Well, my mother, Chlo Z. Case, was a judge.”
-j “I’ll be frank, from my experience watching her perform trials… This case isn’t looking too good.”
-p “It isn’t?”
+j "Mr. (playername), if I may take a wild guess, it appears that you don’t seem to be a very experienced lawyer?"
+p "How’d you know? This is my first case!" 
+j_whisper "So we have a rookie as our defense, wonderful."
+p "Huh? I didn’t hear you."
+j "Nothing!{p=0.3} Say, if this is the first trial you are participating in, this will be a very new experience to you, yes? Well, my mother, Chlo Z. Case, was a judge."
+j "I’ll be frank, from my experience watching her perform trials... This case isn’t looking too good."
+p "It isn’t?"
 show j surprised
-j “Haven’t you seen the evidence? Wait, you truly haven’t?”
-p “I, er{p=0.1}, kind of was just assigned to the case with no warning this morning.”
-j_whisper “Damn, this isn’t looking too good.”
-j “Let’s just say that the evidence is stacked against us, and if I have to admit something to you…”
-j “{i}Sigh{\i}...{p=0.2} nevermind. Forget it. But Courtney deserves saving, and you aren’t very experienced.”
-j “I am not a licensed practitioner, but I know how the courts work. So I ask you this: let me advise you.”
-p “What?!”
-j “Me and Courtney will have to be at the defense’s bench with you. When you’re there, I’ll be able to give you advice. I saw it happen all the time with senior practitioners and youths such as yourself.”
-p “I-Thanks! In truth, I’m not really sure I will be able to do as well as you would like…”
+j "Haven’t you seen the evidence? Wait, you truly haven’t?"
+p "I, er{p=0.1}, kind of was just assigned to the case with no warning this morning."
+j_whisper "Damn, this isn’t looking too good."
+j "Let’s just say that the evidence is stacked against us, and if I have to admit something to you..."
+j "{i}Sigh{\i}...{p=0.2} nevermind. Forget it. But Courtney deserves saving, and you aren’t very experienced."
+j "I am not a licensed practitioner, but I know how the courts work. So I ask you this: let me advise you."
+p "What?!"
+j "Me and Courtney will have to be at the defense’s bench with you. When you’re there, I’ll be able to give you advice. I saw it happen all the time with senior practitioners and youths such as yourself."
+p "I-Thanks! In truth, I’m not really sure I will be able to do as well as you would like..."
 show j smile
-j “Kid, I’ve seen miracles happen at the bench before, battles of wit so great that they would be spoken of for years. In this world, even the impossible becomes possible.”
+j "Kid, I’ve seen miracles happen at the bench before, battles of wit so great that they would be spoken of for years. In this world, even the impossible becomes possible."
 show j worried
-j_whisper “Though even the impossible may not be enough…”
+j_whisper "Though even the impossible may not be enough..."
 
 **Transition-Fade to Black
 (Add player backstory here)
 **Transition-Fade to Courtroom
 
-ju “Order in the court! We are here for the trial of Courtney Case. 
-ju “She is charged with accounts of theft, ___, and ___, to which she has pleaded not guilty.”
-p “{i}Those charges wouldn’t get you too harsh of a punishment, especially for a minor…{\i}” 
+ju "Order in the court! We are here for the trial of Courtney Case. 
+ju "She is charged with accounts of theft, breaking and entering, and ___, to which she has pleaded not guilty."
+p "{i}Those charges wouldn’t get you too harsh of a punishment, especially for a minor...{\i}" 
 show j worried
-p “{i}so why does Mr. Case look so worried?{\i}”
-ju “May the prosecution, led by Mr. (prosecutorname) say its opening statement?”
-pr “””
+p "{i}so why does Mr. Case look so worried?{\i}"
+ju "May the prosecution, led by Mr. (prosecutorname) say its opening statement?"
+pr """
 Your gracious honor, and members of the jury.
 
 We are here, for another cut and dry case, I hope. It breaks my heart, to see the youths of this generation be so misguided, to perform such acts.
@@ -79,81 +80,127 @@ We are here, for another cut and dry case, I hope. It breaks my heart, to see th
 The prosecution has gathered various pieces of evidence to support its claims. With them, it is clear that young Ms. Case has committed the various crimes she is accused of. 
 
 The prosecution will also be able to provide motivation as to why Ms. Case has committed the crimes she has. It is a sorry story, and I hope that after this trial, Ms. Case gets the help that she needs.
-“””
-ju “Thank you. Will the defense, led by Mr. (playername) give its opening statement?”
-p “Ah, yes,{p=0.1} the opening statement! {i}I don’t have an opening statement prepared! What do I do? {\i}”
-j “Psst. I can see that you don’t know what to do. I’d suggest looking at the {color=#DFC57B}documents{\color} in your possession. 
-p “{i}Oh! The case files! They can help me come up with something on the fly!{\i}”
-p “This case is indeed a tragic one, but not because Ms. Case is the criminal! She is in fact a victim of, um,{p=0.06} the poor security of…”
-p “{i}Where did she steal from-, I mean get accused of stealing from, again…? Wait! I just read it in the {color=#DFC57B}documents{\color}! {\i}”
+"""
+ju "Thank you. Will the defense, led by Mr. (playername) give its opening statement?"
+p "Ah, yes,{p=0.1} the opening statement! {i}I don’t have an opening statement prepared! What do I do? {\i}"
+j "Psst. I can see that you don’t know what to do. I’d suggest looking at the {color=#DFC57B}documents{\color} in your possession. 
+p "{i}Oh! The case files! They can help me come up with something on the fly!{\i}"
+p "This case is indeed a tragic one, but not because Ms. Case is the criminal! She is in fact a victim of, um,{p=0.06} the poor security of..."
+p "{i}Where did she steal from-, I mean get accused of stealing from, again...? Wait! I just read it in the {color=#DFC57B}documents{\color}! {\i}"
 menu:
-	“Where is Courtney Case being accused of stealing from?”
-	“Jewelry Store”:
+	"Where is Courtney Case being accused of stealing from?"
+	"Jewelry Store":
 		correct
-	“Bank”:
-		p “Ms. Case is a victim of the poor security of the bank! They obviously falsely accused her of such a terrible crime!”
-		ju “A bank? My case notes don’t mention a bank? Did she rob a bank as well!?” hpunch
-		p “N-no your honor! I must have misspoke!”
-		j “What are you doing!? It’s mistakes like this that sway the court against you”
-		j “Now they have the idea that my daughter robbed a bank in their minds! Check the evidence before jumping to conclusions!”
-		p “I’m sorry! {i}Looks like that was the wrong thing to say. Let me check the {color=#DFC57B}documents{\color} again…{\i}”
+	"Bank":
+		p "Ms. Case is a victim of the poor security of the bank! They obviously falsely accused her of such a terrible crime!"
+		ju "A bank? My case notes don’t mention a bank? Did she rob a bank as well!?" hpunch
+		p "N-no your honor! I must have misspoke!"
+		j "What are you doing!? It’s mistakes like this that sway the court against you"
+		j "Now they have the idea that my daughter robbed a bank in their minds! Check the evidence before jumping to conclusions!"
+		p "I’m sorry! {i}Looks like that was the wrong thing to say. Let me check the {color=#DFC57B}documents{\color} again...{\i}"
 		goto menu
-	“Playground”:
-		p “Ms. Case is a victim of the poor security of the local playground! I’ve never even seen a single security camera around one in my entire life!” hpunch
-		ju “A playground! Are you suggesting that we spend budget money and time setting up surveillance cameras around a playground!”
-		p “Ye- um… {p=0.1}no…”
-		j “What are you doing!? It’s mistakes like this that sway the court against you”
-		j “Now they have the idea that my daughter robbed a playground in their minds! Check the evidence before jumping to conclusions!”
-		p “I’m sorry! {i}Looks like that was the wrong thing to say. Let me check the {color=#DFC57B}documents{\color} again…{\i}”
+	"Playground":
+		p "Ms. Case is a victim of the poor security of the local playground! I’ve never even seen a single security camera around one in my entire life!" hpunch
+		ju "A playground! Are you suggesting that we spend budget money and time setting up surveillance cameras around a playground!"
+		p "Ye- um... {p=0.1}no..."
+		j "What are you doing!? It’s mistakes like this that sway the court against you"
+		j "Now they have the idea that my daughter robbed a playground in their minds! Check the evidence before jumping to conclusions!"
+		p "I’m sorry! {i}Looks like that was the wrong thing to say. Let me check the {color=#DFC57B}documents{\color} again...{\i}"
 		goto menu
-p “Ms. Case is a victim of the poor security of a jewelry store! They have falsely accused her of theft, and their lacking, er, security measures, have failed to find the true culprit!
-j_whisper “Hm. Implying that a theft indeed did happen without knowing all the details, could come to regret that. Bad phrasing as well, even if it does shift the blame from Courtney. {i}Sigh.{\i}”
-p “{i}Is he rating my response? Looks like I didn’t do well…{\i}”
-p “Members of the jury, I ask you to carefully consider her case! She, like all children, has great potential, which would be wasted by whatever punishment inflicted on her. She is merely…”
-p “{i}How old is she? How don’t I know this?{\i}”
-j “It appears that you need information on Courtney. Luckily, you have a file containing information about some of the members involved in this trial, and you can add information about more members as you meet them. It should be labeled {color=#DFC57B}characters{\color}.”
-p “{i}I should check the folder to see Courtney’s age…{\i}
+p "Ms. Case is a victim of the poor security of a jewelry store! They have falsely accused her of theft, and their lacking, er, security measures, have failed to find the true culprit!
+j_whisper "Hm. Implying that a theft indeed did happen without knowing all the details, could come to regret that. Bad phrasing as well, even if it does shift the blame from Courtney. {i}Sigh.{\i}"
+p "{i}Is he rating my response? Looks like I didn’t do well...{\i}"
+p "Members of the jury, I ask you to carefully consider her case! She, like all children, has great potential, which would be wasted by whatever punishment inflicted on her. She is merely..."
+p "{i}How old is she? How don’t I know this?{\i}"
+j "It appears that you need information on Courtney. Luckily, you have a file containing information about some of the members involved in this trial, and you can add information about more members as you meet them. It should be labeled {color=#DFC57B}characters{\color}."
+p "{i}I should check the folder to see Courtney’s age...{\i}
 menu:
-	“What is Courtney’s age?”
+	"What is Courtney’s age?"
 	
-	“16”:
-		p “Courtney is a mere 16 years old, and is at a crucial state of her life!”
-		ju “If she is 16, then surely she should be mature enough to know that theft, especially at the scale she stole, is illegal?”
-		p “Yes, but,{p=0.1} hold on, that assumes that she stole in the first place!”
-		j “Mr. (playername), please snap out of it! You gave the wrong age! Check the {color=#DFC57B}characters{\color} folder again, before you convince the jury that she is mature enough to deserve heavier repercussions in the increasingly likely chance of losing the case!
-		p “Right, sorry. {i}Let me check the {color=#DFC57B}characters{\color} folder one more time…”
+	"16":
+		p "Courtney is a mere 16 years old, and is at a crucial state of her life!"
+		ju "If she is 16, then surely she should be mature enough to know that theft, especially at the scale she stole, is illegal?"
+		p "Yes, but,{p=0.1} hold on, that assumes that she stole in the first place!"
+		j "Mr. (playername), please snap out of it! You gave the wrong age! Check the {color=#DFC57B}characters{\color} folder again, before you convince the jury that she is mature enough to deserve heavier repercussions in the increasingly likely chance of losing the case!
+		p "Right, sorry. {i}Let me check the {color=#DFC57B}characters{\color} folder one more time..."
 		goto menu
-	“38”:
-		p “Courtney is a mere 38 years old, and-”
-		ju “WHAT!” hpunch
-		ju “Mr. (playername), if this is a joke, I am not laughing. She clearly is younger than 38, and she is being tried as a minor!
-		j “You clearly are a jester, since you think you can joke like this over the fate of my daughter.
-p “S-sorry. {i}Looks like it's back to the {color=#DFC57B}characters{\color} folder for me…{\i}”
+	"38":
+		p "Courtney is a mere 38 years old, and-"
+		ju "WHAT!" hpunch
+		ju "Mr. (playername), if this is a joke, I am not laughing. She clearly is younger than 38, and she is being tried as a minor!
+		j "You clearly are a jester, since you think you can joke like this over the fate of my daughter.
+p "S-sorry. {i}Looks like it's back to the {color=#DFC57B}characters{\color} folder for me...{\i}"
 goto menu
-	“11”:
+	"11":
 		correct
-p “Courtney is a mere 11 years old! She is young enough that she wouldn’t be able to plot some scheme to steal from a jewelry store! At the very least, consider her youth before coming to a decision!”
-j_whisper “Discounting youths was one of the biggest mistakes of lawyers I’ve seen, the gremlins can get up to anything. Emotional appeal, too emotional? Shouldn’t argue for a point in the opening statement.”
-p “{i}His muttering isn’t really helping! It’s not like I can turn back time!{\i}”
-ju “If that will be all, we may proceed with the trial. May the prosecution call its first witness?”
-pr “The prosecution would like to call the owner of the store, Mrs. Ruby Stone.”
+p "Courtney is a mere 11 years old! She is young enough that she wouldn’t be able to plot some scheme to steal from a jewelry store! At the very least, consider her youth before coming to a decision!"
+j_whisper "Discounting youths was one of the biggest mistakes of lawyers I’ve seen, the gremlins can get up to anything. Emotional appeal, too emotional? Shouldn’t argue for a point in the opening statement."
+p "{i}His muttering isn’t really helping! It’s not like I can turn back time!{\i}"
+ju "If that will be all, we may proceed with the trial. May the prosecution call its first witness?"
+pr "The prosecution would like to call the detective assigned to the trial, Detective (detectivename).
+pr "May the witness share their name and occupation for the court?"
+d "Detective (detectivename), detective."
+p "{i}Why does just looking at him give me depression? {\i}"
+pr "Detective, please summarize the events of the case in brief... for those of us unable to spend the time necessary to read about it beforehand."
+p "{i}Why do I think he's talking about me?{\i}"
+**Flash Testimony
+j "Alright Mr. (playername), the prosecution is questioning its first witness. Firstly, just observe the statements of the detective passively, and look for any important details. The difficult part comes afterwards."
+d """
+It was, a night like any other, and like any other night, evil was afoot.
+The store, the Golden Diamond had just closed at 7:30 p.m.
+The owner was locking up, when the store's phone rang.
+She walked over to the phone when heard a sound from behind her, at the door.
+She turned around to see none other than Ms. Case behind her.
+She called the police, and upon further investigation, found that five high value pieces of jewelry were missing. Ms. Case was detained.
+"""
+d "Here is a schedule of the opening and closing times of the store."
+GIVE DOCUMENT: Store Schedule.
+ju "Well. This seems to be a very simple case. The only thing that would make it simpler is finding the jewelry on her."
+p "{i}THIS is the evidence against Courtney? How will I ever defend her?{\i}"
+j "I know this sounds bad, especially for a first case. But this argument lacks one thing: details. You'll now be able to cross examine the witness. Go through each of his statements, and see if there are any you wish to inquire into further."
+p "Alright, it's time for my first cross examination then."
+**Flash Cross Examination
+L1:
+	p "So, you see evil every night then?
+	d "No, just the cold, depressing reality that is existence."
+	p "..."
+	d "Mainly because I have to watch my ex wife cuddle with her husband."
+	p "Why do you see her every day?"
+	d "I live at her house."
+	p "And you couldn't bother to buy a house for yourself?"
+	ju "Defense, please avoid from straying into the low salary of the witness."
+L2:
+	p "What was the date of the incident?"
+	d "XX/XX/XXXX, a Wednesday."
+	p 
+	
 
-pr “May the witness share their name and occupation for the court?”
-r “My name is Ruby Stone, proprietor of the Golden Diamond. Feel free to visit the store any time-if you won’t steal like that girl over there!”
-ju “So you claim that Ms. Case has stolen from your establishment?”
-r “I do and she has. That brat is a thief, and if she claims that she isn’t, a liar.”
-j “Objection! The witness is disparaging Ms. Case unduly!” 
-ju “Objection sustained, Mrs. Stone, please avoid such derogatory claims towards Ms. Case. Mr. Case, please avoid objecting and allow the defense council to respond himself.”
-j “There will be times in this trial where the witness may try to disparage your client. If you catch them in the act, you may be rewarded by the jury starting to favor you.” 
-ju “If there are no further objections, begin examination of the witness, prosecution.”
-pr “My pleasure.”
+pr "The prosecution would like to call the owner of the store, Mrs. Ruby Stone."
+pr "May the witness share their name and occupation for the court?"
+r "My name is Ruby Stone, proprietor of the Golden Diamond. Feel free to visit the store any time-if you won’t steal like that girl over there!"
+ju "So you claim that Ms. Case has stolen from your establishment?"
+r "I do and she has. That brat is a thief, and if she claims that she isn’t, a liar."
+j "Objection! The witness is disparaging Ms. Case unduly!" 
+ju "Objection sustained, Mrs. Stone, please avoid such derogatory claims towards Ms. Case. Mr. Case, please avoid objecting and allow the defense council to respond himself."
+j "There will be times in this trial where the witness may try to disparage your client. If you catch them in the act, you may be rewarded by the jury starting to favor you."
+j "You may also object if you feel that there is a leap of logic in the reasoning of a party that is unjustified.
+ju "If there are no further objections, begin examination of the witness, prosecution."
+pr "My pleasure."
 
 **Flash Testimony
 
-pr “When did you first meet the defendant?”
-r “Meet is a strong word. I first saw her browsing my store around five months ago, dressed like a vagrant as she is now.”
+pr "When did you first meet the defendant?"
+r "Meet is a strong word. I first saw her browsing my store around five months ago, dressed like a vagrant as she is now."
 **If Objection:
-	p “Objection! You, er,{p=0.1} are being rude to my client!”
-	ju “Objection sustained, however the defense is advised to improve its wordplay. Please avoid insulting the defendant and her attire.”
-	r “Hmph! It’s not like I’m speaking lies!
-pr “Did she display any signs of wealth
+	p "Objection! You, er,{p=0.1} are being rude to my client!"
+	ju "Objection sustained, however the defense is advised to improve its wording. Please avoid insulting the defendant and her attire."
+	r "Hmph! It’s not like I’m speaking lies!
+pr "Did she display any signs of wealth on her possession?"
+r "No. She appeared to be very poor, not a accessory on her body!"
+pr "Describe her normal behavior in the Golden Diamond?"
+r "She usually just walks around the place, staring at all of the jewelry in the room. She never buys anything, but just looks at it all for dozens of minutes."
+pr "Have you interacted with her much? If so, how would you judge her personality?"
+r "I rarely spoke with her. She was very quiet throughout, almost suspiciously quiet. I never quite understood why she would come to the store every day, even when it was visibly so obvious that she could not afford even the cheapest of my wares.
+pr "When did the incident occur, and where were you at the time?"
+r "It was after the store closed. I was packing up my personal items from my office and walking out when I witnessed the incident."
+
