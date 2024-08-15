@@ -145,6 +145,7 @@ pr "Detective, please summarize the events of the case in brief... for those of 
 p "{i}Why do I think he's talking about me?{\i}"
 **Flash Testimony
 j "Alright Mr. (playername), the prosecution is questioning its first witness. Firstly, just observe the statements of the detective passively, and look for any important details. The difficult part comes afterwards."
+ju "Prosecution, you may begun the cross examination of the witness.
 d """
 It was, a night like any other, and like any other night, evil was afoot.
 The store, the Golden Diamond had just closed at 7:30 p.m.
@@ -159,22 +160,78 @@ ju "Well. This seems to be a very simple case. The only thing that would make it
 p "{i}THIS is the evidence against Courtney? How will I ever defend her?{\i}"
 j "I know this sounds bad, especially for a first case. But this argument lacks one thing: details. You'll now be able to cross examine the witness. Go through each of his statements, and see if there are any you wish to inquire into further."
 p "Alright, it's time for my first cross examination then."
+ju "Defense, begin cross examination of the witness.
 **Flash Cross Examination
 L1:
 	p "So, you see evil every night then?
 	d "No, just the cold, depressing reality that is existence."
 	p "..."
-	d "Mainly because I have to watch my ex wife cuddle with her husband."
+	d "Mainly because I have to watch my ex wife be with her new husband."
 	p "Why do you see her every day?"
 	d "I live at her house."
 	p "And you couldn't bother to buy a house for yourself?"
 	ju "Defense, please avoid from straying into the low salary of the witness."
 L2:
 	p "What was the date of the incident?"
-	d "XX/XX/XXXX, a Wednesday."
-	p 
-	
+	d "XX/XX/XXXX, a Thursday. It's always Thursday when things happen."
+	p "...?"
+	d "People are too tired on Monday. They plan on Tuesday. Last minute preparations on Wednesday. Operation on Thursday. Extraction on Friday. Party on Saturday and Sunday."
+	p "I... see? I suppose you would be the expert... but I'm not sure if that's entirely accurate.
+	d "My wife died on a Thursday."
+	ju "Defense, please return to questioning the witness so that we do not have to endure whatever this is."
 
+
+	Loophole:
+		p "Detective, you offered us a schedule. On it, we can see the closing times of the store."
+		d "Yes...{p=0.1} which is why I offered it to you."
+		p "I invite you to check the closing times again."
+		d "Weekday closing: 7:30 p.m. Weekend closing: 7:00 p.m. On any day with a Major Sale, store closes instead 15 minutes later."
+		p "Now, read the line at the very top."
+		d "Topaz Thursday! Major Sale every Thursday! Wait, hang on-"
+		p "Because Thursdays have a Major Sale, that means that the store should have closed 15 minutes later! This means-"
+		d "Hah! I got it!"
+		d "Through my detective prowess, I have determined the existence of a discrepancy."
+		d "The proprietor of the store said that it closed at 7:30, however the documents show a very different tale.
+		d "The schedule shows that the store should have closed at 7:45, due to a Major Sale happening every Thursday."
+		d "A discrepancy, I thought you should note."
+		p "{i}That's...{p=0.1} what I just said?{\i}"
+		ju "Excellent deduction, detective! Why, this shines light on a very interesting contradiction!"
+		p "{i}That was my deduction! Where are my congratulations?!{\i}"
+L3:
+	p "The phone rang? Why is exactly this relevant?"
+	d "The smallest details...{p=0.1} can make a world of a difference."
+	p "And what difference does this detail mean?"
+	d "I once stepped in my dog's poo, before my wife took him in the divorce. Knowing the poo existed would have meant that I wouldn't have had to shower that day."
+	p "{i}Is he saying that it would take him stepping in a dog's poo just to take a shower{\i}"
+	d "The owner of the store specifically mentioned the phone call, and I thought it would be helpful to include."
+	p "{i}Couldn't you have led with that?{\i}"
+	d "If you wish to know the details, you will have to wait for her to testify."
+	p "{i}So the owner will be testifying? Interesting...{\i}"
+L4:
+	p "What was the sound?"
+	d "The sound was described as a banging. The door was fingerprinted and found to contain Ms. Case's fingerprints."
+	d "We can assume that the sound was Ms. Case pulling on the door to try to escape."
+	p "How so?"
+	d "Well..."
+L5:
+	p "She was just detained? She's a child!"
+	pr "I will excuse your ignorance, despite you being a person who should have studied the laws on detainment."
+	pr "Officers only require a justifiable reason for detainment to imprison someone, and in this situation, Ms. Case being in the exact place of a crime scene, one that should not have been accessible to the public was enough grounds for arrest.
+	p "S-sorry, I haven't read up on the law recently."
+	pr "Hmph. Take this sheet then, it's a list of some important laws and their effects. I already memorized it."
+	GIVE DOCUMENT: Law Sheet
+	p "Oh, thanks!"
+L5 Aft:
+	p "Has the jewelry been found?"
+	d "Not yet. All we know is that it wasn't in the possession of Ms. Case.
+	p "How do you know?"
+	d "It's in that book of yours. Officers are allowed to perform a full body search of a detained suspect with justifiable cause."
+	d "Since we couldn't find it on her, it probably is still hidden somewhere in the store. It is currently being locked down by officers. Even a master theif would have no hope in taking it from the store.
+	d "Of course, even a master theif may not be able to find the jewelry, because we still haven't located it. Ms. Case hid it well."
+	p "Hey! Ms. Case didn't steal anything."
+	d "And my wife didn't leave me."
+	p "...{p=0.1} did she?"
+	d "Yes."
 pr "The prosecution would like to call the owner of the store, Mrs. Ruby Stone."
 pr "May the witness share their name and occupation for the court?"
 r "My name is Ruby Stone, proprietor of the Golden Diamond. Feel free to visit the store any time-if you won’t steal like that girl over there!"
