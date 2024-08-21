@@ -185,7 +185,7 @@ L2:
 	p "I... see? I suppose you would be the expert... but I'm not sure if that's entirely accurate.
 	d "My wife died on a Thursday."
 	ju "Defense, please return to questioning the witness so that we do not have to endure whatever this is."
-	Loophole:
+	Loophole-Schedule:
 		p "Detective, you offered us a schedule. On it, we can see the closing times of the store."
 		d "Yes...{w=0.1} which is why I offered it to you."
 		p "I invite you to check the closing times again."
@@ -207,8 +207,6 @@ L2:
 		j "It appears that you have mostly finished examining the testimony of the first witness. Good job on finding that contradiction, it's things like those that can help build a case."
 		p "The prosecutor doesn't seem too worried by the revelation though. Almost as if he has a plan for it."
 		j "That he likely does. However, the further you delve into details such as this one, the more likely you are to find something even he didn't notice."
-
-		
 L3:
 	p "The phone rang? Why is exactly this relevant?"
 	d "The smallest details...{w=0.1} can make a world of a difference."
@@ -245,11 +243,19 @@ L5 Aft:
 	d "And my wife didn't leave me."
 	p "...{w=0.1} did she?"
 	d "Yes."
+Repeat:
+	p "{i}So those are all the statements by the detective.{\i}"
+	p "{i}Let me go through them again to see if I missed anything.{\i}"
 ju "Is the defense ready to proceed?
 p "Yes, your honor."
 ju "Very well. Thank you for your time, witness. Does the defense wish to call a witness?"
-j "Unfortunately, you have not prepared any witnesses yet, and I believe that you would wish to save my daughter as a witness until after you learn the full story."
-p "You're right. Your honor, the defense does not wish to call a witness."
+j "Hm. You could call my daughter as a witness now, or you could wait and call her after the testimony of the store owner, now that you know the basic story of the case. What would you like to do?"
+If NOW:
+	Goto Courtney Testimony
+Elif Later:
+	Goto Ruby Stone Testimony
+Ruby Stone Testimony
+p "No your honor."
 ju "Very well. May the prosecution call a witness?"
 pr "Hmph. The prosecution would like to call the owner of the store, Mrs. Ruby Stone."
 
@@ -307,3 +313,60 @@ pr "The incident occured on Thursday, meaning that you would have had a major sa
 r "I had an... event... to attend. Unrelated to what would transpire afterward."
 pr "Hmph. Did you indicate this in any way?"
 r "I looked through the store, and I didn't find anyone inside. I then turned the open sign to say the store was closed."
+pr "What happened at the time of the incident?"
+r "I was at the door, just about to leave, when the phone rang."
+r "I decided to go and pick it up, you never know when a call is the diamond in the rough."
+r "Unfortunately, it was not very interesting. However, near the end, I heard a loud noise from near the door."
+r "I turned around, and lo and behold, it was that very girl, tresspassing in my store!"
+r "It was definitely her, based on her (insert defining trait here)"
+r "She was holding on the doorknob. I assume the noise was her yanking on it. She probably thought that I had unlocked it, but I hadn't yet."
+r "I managed to tackle her to the ground, and used a cube of tungsten to weigh her down."
+r "I called the police, who arrested her. I was looking through my stores while they arrived, and I found five of my precious items missing!"
+r "The police still have yet to find them, but I know that girl took them, I just know it! Force her to cough it up!"
+**If Objection:
+	p "Objection! The witness does not know if the defendant stole the jewelry!"
+	pr "Hmph. Could you not just say speculative reasoning?"
+	ju "Objection sustained. Witness, please stop accusing the defendant of theft until she is proven to be guilty."
+	**REWARD
+	r "Well, to me, it seems that the case has already been cut into a perfect jewel! I don't understand why we should dilly dally."
+pr "The prosecution rests, your honor."
+ju "Very well. Would the defense like to cross examine the witness?"
+p "Yes your honor."
+**Flash Cross Examination
+j "Try to organize the information you got from that testimony so that you have all the facts."
+p "Got it."
+
+L1: r "Courtney had a reserved personality, but she would visit the store often."
+	If not Objected:
+		p "At what time would she come to the store?"
+		r "Usually very late. A lot of the time right before closing. She was probably trying to make a plan to break in!"
+		if Objection:
+			p "Objection! Sp-speculative reasoning!"
+			ju "Objection sustained. Witness, you do not know the intent of the defendant."
+			**REWARD
+			r "Isn't guessing all you lawyers do?"
+	Else:
+		p "So Courtney comes to the store really late?"
+		r "Yes. For... unknown reasons..."
+		p "{i}She seems really unhappy to say that.{\i}"
+L2: r "The store closed at 7:30 instead of at 7:45 due to an event."
+	p "What is the nature of this event?"
+	pr "Objection! This event likely ties into the personal life of the witness, and does not need to be disclosed."
+	ju "Objection sustained. This line of questioning is unnecessary and personal."
+	r "All I will say is that it does not have anything to do with the case."
+L3: r "I checked around the store and no one was there, and so I flipped the sign to say closed."
+
+	Loophole-Storefront:
+		p "Mrs. Stone. Do you recognize this image?"
+		r "I do. It is my storefront!"
+L4: r "The phone rang. I picked it up and talked, when suddenly there was a loud sound at the door."
+L5: r "I turned around and saw Courtney at the door, and I physically inhibited her."
+Repeat:
+	p "{i}So that was her testimony then.{\i}"
+	j "Would you like to hear it again, or hear Courtney's testimony?"
+	if AGAIN:
+		Repeat
+	Else:
+		Goto Courtney Testimony
+
+Courtney Testimony

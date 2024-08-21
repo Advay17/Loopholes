@@ -14,10 +14,17 @@ init python:
             self.name=name
             self.desc=desc
             self.img=img
+    class RuleDocument(Document):
+        def __init(self, name, desc, sub_text, img, rules):
+            self.name=name
+            self.desc=desc
+            self.sub_text=sub_text
+            self.img=img
+            self.rules=rules
 define pov = Character("[povname]")
 
-define luggage = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "According to all known laws of aviation, there is no way a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway because bees don't care what humans think is impossible. ", "badge")
-default document_list=[luggage]
+define badge = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "Literally just a badge. You don't know why it's with the other documents.", "badge")
+default document_list=[badge]
 define saul_goodman = CharacterData("Saul Goodman", "Better, call, Saul. Better, call, Saul. Better, call, Saul.", "jimmy")
 default character_list = [saul_goodman]
 screen under_menu():
