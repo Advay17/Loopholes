@@ -160,8 +160,9 @@ She walked over to the phone when heard a sound from behind her, at the door.
 She turned around to see none other than Ms. Case behind her.
 She called the police, and upon further investigation, found that five high value pieces of jewelry were missing. Ms. Case was detained.
 """
-d "Here is a schedule of the opening and closing times of the store."
-GIVE DOCUMENT: Store Schedule.
+d "Here is a schedule of the opening and closing times of the store, and here is an image of the storefront right after the incident."
+**GIVE DOCUMENT: Store Schedule
+**GIVE DOCUMENT: Storefront
 ju "Well. This seems to be a very simple case. The only thing that would make it simpler is finding the jewelry on her."
 p "{i}THIS is the evidence against Courtney? How will I ever defend her?{\i}"
 j "I know this sounds bad, especially for a first case. But this argument lacks one thing: details. You'll now be able to cross examine the witness. Go through each of his statements, and see if there are any you wish to inquire into further."
@@ -185,7 +186,8 @@ L2:
 	p "I... see? I suppose you would be the expert... but I'm not sure if that's entirely accurate.
 	d "My wife died on a Thursday."
 	ju "Defense, please return to questioning the witness so that we do not have to endure whatever this is."
-	Loophole-Schedule:
+	j "Hey, this seems to contradict what you know. Try to identify the {color=#DFC57B}Loophole{\color}.
+	**Loophole-Schedule:
 		p "Detective, you offered us a schedule. On it, we can see the closing times of the store."
 		d "Yes...{w=0.1} which is why I offered it to you."
 		p "I invite you to check the closing times again."
@@ -207,6 +209,8 @@ L2:
 		j "It appears that you have mostly finished examining the testimony of the first witness. Good job on finding that contradiction, it's things like those that can help build a case."
 		p "The prosecutor doesn't seem too worried by the revelation though. Almost as if he has a plan for it."
 		j "That he likely does. However, the further you delve into details such as this one, the more likely you are to find something even he didn't notice."
+		**if Document Given:
+			Finish Cross Examination
 L3:
 	p "The phone rang? Why is exactly this relevant?"
 	d "The smallest details...{w=0.1} can make a world of a difference."
@@ -224,29 +228,31 @@ L4:
 	p "How so?"
 	d "Well..."
 L5:
-	p "She was just detained? She's a child!"
-	pr "I will excuse your ignorance, despite you being a person who should have studied the laws on detainment."
-	pr "Officers only require a justifiable reason for detainment to detain someone, and in this situation, Ms. Case being in the exact place of a crime scene, one that should not have been accessible to the public, was enough grounds for arrest.
-	p "S-sorry, I haven't read up on... law... recently."
-	pr "Hmph. Take this sheet then, it's a list of laws I believed would be relevant to this. I already memorized it."
-	GIVE DOCUMENT: Law Sheet
-	p "Oh, thanks!"
-	pr "Hmph."
-L5 Aft:
-	p "Has the jewelry been found?"
-	d "Not yet. All we know is that it wasn't in the possession of Ms. Case.
-	p "How do you know?"
-	d "It's in that book of yours. Officers are allowed to perform a full body search of a detained suspect with justifiable cause."
-	d "Since we couldn't find it on her, it probably is still hidden somewhere in the store. It is currently being locked down by officers. Even a master theif would have no hope in taking it from the store.
-	d "Of course, even a master theif may not be able to find the jewelry, because we still haven't located it. Ms. Case hid it well."
-	p "Hey! Ms. Case didn't steal anything."
-	d "And my wife didn't leave me."
-	p "...{w=0.1} did she?"
-	d "Yes."
+	If Document Given:
+		p "She was just detained? She's a child!"
+		pr "I will excuse your ignorance, despite you being a person who should have studied the laws on detainment."
+		pr "Officers only require a justifiable reason for detainment to detain someone, and in this situation, Ms. Case being in the exact place of a crime scene, one that should not have been accessible to the public, was enough grounds for arrest.
+		p "S-sorry, I haven't read up on... law... recently."
+		pr "Hmph. Take this sheet then, it's a list of laws I believed would be relevant to this. I already memorized it."
+		GIVE DOCUMENT: Law Sheet
+		p "Oh, thanks!"
+		pr "Hmph."
+	Else:
+		p "Has the jewelry been found?"
+		d "Not yet. All we know is that it wasn't in the possession of Ms. Case.
+		p "How do you know?"
+		d "It's in that book of yours. Officers are allowed to perform a full body search of a detained suspect with justifiable cause."
+		d "Since we couldn't find it on her, it probably is still hidden somewhere in the store. It is currently being locked down by officers. Even a master theif would have no hope in taking it from the store.
+		d "Of course, even a master theif may not be able to find the jewelry, because we still haven't located it. Ms. Case hid it well."
+		p "Hey! Ms. Case didn't steal anything."
+		d "And my wife didn't leave me."
+		p "...{w=0.1} did she?"
+		d "Yes."
 Repeat:
 	p "{i}So those are all the statements by the detective.{\i}"
 	p "{i}Let me go through them again to see if I missed anything.{\i}"
-ju "Is the defense ready to proceed?
+ju "Is the defense ready to proceed?"
+
 p "Yes, your honor."
 ju "Very well. Thank you for your time, witness. Does the defense wish to call a witness?"
 j "Hm. You could call my daughter as a witness now, or you could wait and call her after the testimony of the store owner, now that you know the basic story of the case. What would you like to do?"
@@ -312,7 +318,9 @@ pr "On the schedule you provided, you noted that the store would be open for an 
 pr "The incident occured on Thursday, meaning that you would have had a major sale going on. Why did the store close early then?"
 r "I had an... event... to attend. Unrelated to what would transpire afterward."
 pr "Hmph. Did you indicate this in any way?"
-r "I looked through the store, and I didn't find anyone inside. I then turned the open sign to say the store was closed."
+r "I looked through the store at 7:30, and I didn't find anyone inside. I then turned the open sign to say the store was closed."
+r "I had forgotten to lock the door though, silly me."
+r "I remembered a few minutes later, and locked it."
 pr "What happened at the time of the incident?"
 r "I was at the door, just about to leave, when the phone rang."
 r "I decided to go and pick it up, you never know when a call is the diamond in the rough."
@@ -356,11 +364,30 @@ L2: r "The store closed at 7:30 instead of at 7:45 due to an event."
 	r "All I will say is that it does not have anything to do with the case."
 L3: r "I checked around the store and no one was there, and so I flipped the sign to say closed."
 
-	Loophole-Storefront:
+	**Loophole-Storefront:
 		p "Mrs. Stone. Do you recognize this image?"
-		r "I do. It is my storefront!"
+		r "I do. It's my storefront."
+		p "This image was taken right after the incident. Do you notice anything about it?"
+		r "Noth-"
+		r "WHAT!"
+		p "I see you do."
+		ju "Defense, please explain."
+		p "Your honor, please take a look at the sign that Mrs. Stone put up."
+		p "You can see that it says open."
+		ju "Jeepers!"
+		p "Mrs. Stone, you mentioned that you turned the sign to say closed."
+		r "I did! I swear I did!"
+		pr "Hmph. I object to this line of questioning. So what if the sign said open or closed? It doesn't change anything."
+		j "Well, that's something I didn't notice! Now, figure out how to relate the discrepancy to the case!"
+
 L4: r "The phone rang. I picked it up and talked, when suddenly there was a loud sound at the door."
-L5: r "I turned around and saw Courtney at the door, and I physically inhibited her."
+L5: r "I turned around and saw Courtney at the door, and I physically inhibited her for tresspassing."
+	p "Using a block of... tungsten?"
+	r "The best in heavy, yet affordable metals!"
+	r "I knew no casual girl succh as herself could ever hope to bear its weight.
+	**Loophole-Law Sheet Requires L3 Loophole:
+		p "Mrs. Stone, your accusation is false!"
+		
 Repeat:
 	p "{i}So that was her testimony then.{\i}"
 	j "Would you like to hear it again, or hear Courtney's testimony?"

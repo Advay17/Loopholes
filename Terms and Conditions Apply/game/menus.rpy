@@ -2,29 +2,35 @@
 ##Screen containing all the buttons in the quick menu
 default notepad_text=""
 init python:
-    class Document():
-        def __init__(self, name, desc, sub_text, img):
+    class Item():
+        def __init__(self, name, desc, img):
             self.name=name
             self.desc=desc
-            self.sub_text=sub_text
             self.img=img
-    pass
+    class ImageItem(Item):
+        def __init__(self, name, desc, img, full_image):
+            super().__init__(name, desc, img)
+            self.full_image=full_image
+            self.type="ImageItem"
+    class Document(Item):
+        def __init__(self, name, desc, img, sub_text):
+            super().__init__(name, desc, img)
+            self.sub_text=sub_text
+            self.type="Document"
+    class RuleDocument(Document):
+        def __init__(self, name, desc, img, sub_text, rules):
+            super().__init__(name, desc, img, sub_text)
+            self.rules=rules
     class CharacterData():
         def __init__(self, name, desc, img):
             self.name=name
             self.desc=desc
             self.img=img
-    class RuleDocument(Document):
-        def __init(self, name, desc, sub_text, img, rules):
-            self.name=name
-            self.desc=desc
-            self.sub_text=sub_text
-            self.img=img
-            self.rules=rules
 define pov = Character("[povname]")
 
-define badge = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "Literally just a badge. You don't know why it's with the other documents.", "badge")
-default document_list=[badge]
+define badge = Document("Badge", "Proof that you are indeed a lawyer, even though you are in America, which doesn't use these.", "badge", "Literally just a badge. You don't know why it's with the other documents.")
+define badge2 = ImageItem("Badge", "Proof that you are indeed a lawyer, again, why do you have 2?", "badge", "badge")
+default document_list=[badge, badge2]
 define saul_goodman = CharacterData("Saul Goodman", "Better, call, Saul. Better, call, Saul. Better, call, Saul.", "jimmy")
 default character_list = [saul_goodman]
 screen under_menu():
@@ -121,14 +127,17 @@ screen documents():
                             xsize 1600
                             background "#000000"
                             hover_background "#FF0000"
-                            action Show("document_info", None, document.name, document.sub_text)
+                            if document.type=="Document":
+                                action Show("document_info", None, document.name, document.type ,document.sub_text)
+                            elif document.type=="ImageItem":
+                                action Show("document_info", None, document.name, document.type,document.full_image)
                             hbox:
                                 add document.img
                                 vbox:
                                     text document.name
                                     text document.desc
         pass
-screen document_info(name, sub_text):
+screen document_info(name, p_type, *args):
     modal True
     zorder 51
     frame:
@@ -156,7 +165,11 @@ screen document_info(name, sub_text):
                 mousewheel True
                 scrollbars "vertical"
                 frame:
-                    text sub_text
+                    xsize 1600
+                    if p_type=="Document":
+                        text args[0]
+                    elif p_type=="ImageItem":
+                        add args[0] xalign 0.5
         pass
 screen loophole():
     modal True
