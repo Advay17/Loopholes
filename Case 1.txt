@@ -386,13 +386,22 @@ L3: r "I flipped the sign and checked the store to see if anyone was there at 7:
 		j "Well, that's something I didn't notice! Now, figure out how to relate the discrepancy to the case!"
 
 L4: r "The phone rang. I picked it up and talked for a few minutes, when suddenly there was a loud sound at the door."
-	p "What was the phone call about?
-	r "Er-"
-	pr "Objection. Irrelevant line of questioning."
-	p "Fine then. What was the sound at the door?"
-	r "I do not know. It sounded like a loud banging noise.
-	j "If we were to assume that the banging sound was Courtney pulling at the door, it would seem that she was the culprit."
-	p "{i}So then what was that sound?{\i}"
+	**If not gemstone heard
+		p "What was the phone call about?
+		r "Er-"
+		pr "Objection. Irrelevant line of questioning."
+		p "Fine then. What was the sound at the door?"
+		r "I do not know. It sounded like a loud banging noise.
+		j "If we were to assume that the banging sound was Courtney pulling at the door, it would seem that she was the culprit."
+		p "{i}So then what was that sound?{\i}"
+	**Else:
+		p "What was the phone call about?"
+		r "Er-, it's irrelevant, no?"
+		p "Until recently, we thought it was. However, Courtney told us a very interesting detail."
+		p "During the phone call, she had overheard you mention the words: kernel residence pie."
+		p "Gibberish, until you realize that she had actually misheard the words."
+		p "She misheard them, for the name Eternal Radiance of the Sky. The very necklace stolen later!"
+		r "S-so?! It's a valuable object!
 L5: r "I turned around and saw Ms. Case at the door, and I physically inhibited her for trespassing."
 	p "Using a block of... tungsten?"
 	r "The best in heavy, yet affordable metals!"
@@ -453,8 +462,12 @@ L5: r "I turned around and saw Ms. Case at the door, and I physically inhibited 
 		ju "Order in the court. Let us now move on."
 L5 Aft: r "I turned around and physically inhibited Ms. Case, because I believed she was trespassing."
 		p "What did you find was stolen?"
-		r "Five of my highest value items! Including my precious necklace, the Eternal Radiance of the Sky!
+		r "Five of my highest value items! Including my precious necklace, the Eternal Radiance of the Sky!"
 		p "{i}Lengthy name...{\i}
+		r "It has a stunning topaz which is surrounded by magnificent sapphires, and is worth more than you’ll ever see in your life!"
+		r "Here's a flyer of it, in all its magnificent beauty."
+		**GIVE DOCUMENT: Flyer
+
 **Repeat:
 	p "{i}So that was her testimony then.{\i}"
 	j "Would you like to hear it again, or hear Courtney's testimony?"
@@ -489,7 +502,7 @@ ju "Defense, begin cross examination."
 **Flash Testimony
 p "{i}Alright, what questions should I ask?{\i}
 $ questionlist = ["What is your relationship to the case?", "What is your interest in the Golden Diamond?", "What is your financial state?", "Where were you at the time of the incident?", "Did you steal anything?", "What is your account of the incident?"]
-menu(questionList):
+menu(questionList) ends on seeing 1, 2, 3, 5:
 	"What question will you ask?"
 	0:
 		p "Ms. Case, what is your relationship to the case?"
@@ -534,4 +547,68 @@ menu(questionList):
 		p "What is your account of the incident?"
 		c "Well..."
 		c "I was just going through the store, looking at all the jewelry."
-		c "I didn't see Mrs. Stone, but I would hear her talking on the phone."
+		c "I didn't see the owner, Mrs. Stone, but I heard her talking on the phone."
+		c "She mentioned something about a... kernel residence pie?"
+		ju "Well that sounds tasty, I suppose?"
+		pr "Hmph. I object to this on the grounds that we do not need to delve into Mrs. Stone's personal life."
+		ju "Er-yes! Objection sustained."
+		c "Well, after that, I was about to leave. When I was at the door, I heard a banging noise nearby."
+		p "{i}The banging the store owner mentioned!{\i}"
+		c "I froze, and Mrs. Stone saw me. She tackled me to the ground and placed a cube on me that was too heavy to move."
+		c "Then, {i}*sniff{\i} the police came and arrested me..."
+		c "I was just looking through the shop {i}*sob{\i}... and they asked me about some jewelry {i}*sniff{\i}, but I hadn't taken anything!"
+		c "I was just... looking..."
+p "So that's all the information. I suppose it's time for me to sift through it..."
+**Flash Examination
+**Courtney Testimony Examination
+L1: c "I visited the Golden Diamond because I liked to look at the jewelry, even if I knew I couldn't afford it."
+	j "Finances never were really that great."
+	j "We had to scrape by with what we had."
+	j "Though I only wish it were different..."
+L2: c "I was at the scene during the incident, and I didn't see the owner of the store."
+	p "How were you not able to see the owner?
+	c "There were a lot of shelves around the store, and they meant that you couldn't see everything at once.
+	p "So you were in a section of the store that the owner wouldn't have been able to see?"
+	c "Yes. I was just admiring some pretty opals, when..."
+L3: c "I heard the owner talk about kernel residence pie on the phone."
+	p "Kernel... residence... pie?"
+	c "I don't understand it either, but I couldn't really hear the conversation well. I just heard her should something like kernel residence pie to the phone."
+	p "{i} Hmm, what sounds like kernel residence pie?{\i}"
+	pr "Again, I object to this line of questioning due to its irrelevance to the case."
+	ju "Objection sustained, defense, please become better at following directions."
+	Loophole - Flyer:
+		p "Kernel residence pie. Those words sound like utter gibberish."
+		pr "Hmph. Do I have to object once more, defense council?"
+		p "Hold on for just a second! Now, you may think these words are irrelevant to the case. But do you know what sounds just like kernel residence pie?"
+		p "How about the Eternal Radiance of the Sky?"
+		ju "That sounds like more gibber-GOOD GOLLY!"
+		pr "No!"
+		p "That's right! One of the very objects stolen from the store!"
+		pr "T-that still doesn't mean anything! It still is irrelevant!"
+		p "Oh no, it could very definitely mean something."
+		p "What are the odds that Mrs. Stone would just happen to be talking about the very necklace, angrily based on the fact that she was yelling, right before it was stolen?"
+		ju "Well done defense council. It seems that we may need to reexamine Mrs. Stone.
+L4: c "I was about to leave when I heard a banging at the door."
+	p "Where you at the door?"
+	c "Yes, but I don't know what the banging was, or where it came from."
+	p "How don't you know what the sound was?"
+	c "I was about to look for the source, when..."
+L5: c "Mrs. Stone apprehended me and I was arrested."
+	p "Using... a tungsten cube?"
+	c "Yes... {i}*sniff{\i}. It was really hard to move..."
+	ju "We shall, er, put the ethics of that aside for a later date."
+**Repeat:
+	p "{i}So that was her testimony then.{\i}"
+	j "Would you like to hear it again, or hear Mrs. Stone's testimony?"
+	if AGAIN:
+		p "Let me reexamine this testimony to hear some clues."
+		**Repeat
+	Else:
+		If heard Courtney:
+			p "The defense would like to reexamine the statements made by Ruby Stone, your honor."
+			**Goto Courtney Testimony Examination
+		else:
+			p "The defense rests, your honor." 
+			ju "Very well. Would the defense like to call a witness to the stand?"
+			**Goto Ruby Stone Testimony
+	
