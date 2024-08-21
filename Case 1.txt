@@ -262,7 +262,7 @@ ju "So you claim that Ms. Case has stolen from your establishment?"
 r "I do and she has. That brat is a thief, and if she claims that she isn’t, a liar, cross my heart and shine my hematite."
 j "Objection! The witness is disparaging Ms. Case unduly!" 
 ju "Objection sustained, Mrs. Stone, please avoid such derogatory claims towards Ms. Case. Mr. Case, please avoid objecting and allow the defense council to respond himself."
-j "There will be times in this trial where the witness may try to disparage your client. If you catch them in the act by {color=#DFC57B}objecting{\color}, you may be rewarded by the jury starting to favor you."
+j "There will be times in this trial where the witness or prosecutor may try to deprecate your client. If you catch them in the act by {color=#DFC57B}objecting{\color}, you may be rewarded by the jury starting to favor you."
 j "However, statements may stand on a very thin line between insult and what could be argued to be interpretation, so be careful."
 j "You may also {color=#DFC57B}object{\color} if you feel that there is a leap of logic in the reasoning of a party that is unjustified."
 ju "If there are no further objections, begin examination of the witness, prosecution."
@@ -276,6 +276,7 @@ j "Now is your chance! {color=#DFC57B}Object{\color} to the statement."
 **If Objection:
 	p "Objection! You, er,{w=0.1} are being rude to my client!"
 	ju "Objection sustained, however the defense is advised to improve its wording. Please avoid insulting the defendant and her attire."
+	**REWARD
 	r "Hmph! It’s not like I’m speaking lies!
 pr "Did she display any signs of wealth on her possession?"
 r "No. She appeared to be very poor, not a accessory on her body!"
@@ -291,6 +292,12 @@ r "I rarely spoke with her. She was very quiet throughout, almost suspiciously q
 	j "This is one of the scenarios where a statement treads a fine line between being allowed and not."
 	j "In the future, ensure that it is a clear insult coming from the witness."
 r "I never quite understood why she would come to the store every day, even when it was visibly so obvious that she could not afford even the cheapest of my wares, almost as if she was pyrite pretending to be gold."
+**If Objection:
+	p "Objection! The witness is acting unkindly in an unnecessary manner."
+	pr "Hmph. A simple 'Objection, improper conduct' would do, you know."
+	ju "Objection sustained. Witness, please avoid insulting the witness.
+	**REWARD
+	r "My, this case is making my tongue as sharp as a diamond!"
 pr "When did the incident occur, and where were you at the time?"
 r "It was after the store closed, last Thursday. I was packing up my personal items from my office and walking out when I witnessed the incident."
 pr "Hmph, what time did the store close?"
@@ -299,4 +306,4 @@ pr "On the schedule you provided, you noted that the store would be open for an 
 pr "The incident occured on Thursday, meaning that you would have had a major sale going on. Why did the store close early then?"
 r "I had an... event... to attend. Unrelated to what would transpire afterward."
 pr "Hmph. Did you indicate this in any way?"
-r "
+r "I looked through the store, and I didn't find anyone inside. I then turned the open sign to say the store was closed."
