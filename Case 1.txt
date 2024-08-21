@@ -155,7 +155,7 @@ ju "Prosecution, you may begun the cross examination of the witness.
 d """
 It was, a night like any other, and like any other night, evil was afoot.
 The store, the Golden Diamond had just closed at 7:30 p.m.
-The owner was locking up, when the store's phone rang.
+The owner was packing up and about to leave, when the store's phone rang.
 She walked over to the phone when heard a sound from behind her, at the door.
 She turned around to see none other than Ms. Case behind her.
 She called the police, and upon further investigation, found that five high value pieces of jewelry were missing. Ms. Case was detained.
@@ -256,10 +256,10 @@ ju "Is the defense ready to proceed?"
 p "Yes, your honor."
 ju "Very well. Thank you for your time, witness. Does the defense wish to call a witness?"
 j "Hm. You could call my daughter as a witness now, or you could wait and call her after the testimony of the store owner, now that you know the basic story of the case. What would you like to do?"
-If NOW:
-	Goto Courtney Testimony
-Elif Later:
-	Goto Ruby Stone Testimony
+**If NOW:
+	**Goto Courtney Testimony
+**Elif Later:
+	**Goto Ruby Stone Testimony
 Ruby Stone Testimony
 p "No your honor."
 ju "Very well. May the prosecution call a witness?"
@@ -341,7 +341,7 @@ p "Yes your honor."
 **Flash Cross Examination
 j "Try to organize the information you got from that testimony so that you have all the facts."
 p "Got it."
-
+**Ruby testimony examination
 L1: r "Ms. Case had a reserved personality, but she would visit the store often."
 	If not Objected:
 		p "At what time would she come to the store?"
@@ -363,6 +363,8 @@ L2: r "The store closed at 7:30 instead of at 7:45 due to an event."
 L3: r "I flipped the sign and checked the store to see if anyone was there at 7:30. Afterward, I locked the door and began to prepare my things."
 	p "How long did it take you to check your store?"
 	r "Only a few minutes. Took me a while to go through the bathrooms, and I dearly wish I had an employee for that."
+	p "Why did you wait to lock the door?"
+	r "I often have a few stragglers inside, and that girl is usually one of them. Though I didn't see her that day... Anyway, it's a hassle to have to unlock and relock the door if I find someone, so I usually just keep it unlocked.
 	**Loophole-Storefront:
 		p "Mrs. Stone. Do you recognize this image?"
 		r "I do. It's my store."
@@ -383,7 +385,14 @@ L3: r "I flipped the sign and checked the store to see if anyone was there at 7:
 		pr "Hmph. I object to this line of questioning. So what if the sign said open or closed? It doesn't change anything."
 		j "Well, that's something I didn't notice! Now, figure out how to relate the discrepancy to the case!"
 
-L4: r "The phone rang. I picked it up and talked, when suddenly there was a loud sound at the door."
+L4: r "The phone rang. I picked it up and talked for a few minutes, when suddenly there was a loud sound at the door."
+	p "What was the phone call about?
+	r "Er-"
+	pr "Objection. Irrelevant line of questioning."
+	p "Fine then. What was the sound at the door?"
+	r "I do not know. It sounded like a loud banging noise.
+	j "If we were to assume that the banging sound was Courtney pulling at the door, it would seem that she was the culprit."
+	p "{i}So then what was that sound?{\i}"
 L5: r "I turned around and saw Ms. Case at the door, and I physically inhibited her for trespassing."
 	p "Using a block of... tungsten?"
 	r "The best in heavy, yet affordable metals!"
@@ -438,14 +447,91 @@ L5: r "I turned around and saw Ms. Case at the door, and I physically inhibited 
 		j "Remember, you only have to prove reasonable doubt. While there is another explanation to the facts, you're on the right track to putting that doubt into the minds of the jury."
 		p "You're telling me I don't have to prove that someone else did it? That's not what I heard..."
 		j "Hah, that's what the police are for."
-		pr "Does the defense wish to comment?
-		
-Repeat:
+		pr "Does the defense wish to comment?"
+		p "Only that your witness evidence has the chance of being spotty. How do we know the witness, who likely has changed the sign dozens of times over her life, in fact changed the sign, and isn't misremembering?"
+		pr "Hmph, your argument still has yet to provide reasonable doubt."
+		ju "Order in the court. Let us now move on."
+L5 Aft: r "I turned around and physically inhibited Ms. Case, because I believed she was trespassing."
+		p "What did you find was stolen?"
+		r "Five of my highest value items! Including my precious necklace, the Eternal Radiance of the Sky!
+		p "{i}Lengthy name...{\i}
+**Repeat:
 	p "{i}So that was her testimony then.{\i}"
 	j "Would you like to hear it again, or hear Courtney's testimony?"
 	if AGAIN:
-		Repeat
+		p "Let me reexamine this testimony to hear some clues."
+		**Repeat
 	Else:
-		Goto Courtney Testimony
+		If heard Courtney:
+			p "The defense would like to reexamine the statements made by Courtney Case, your honor."
+			**Goto Courtney Testimony Examination
+		else:
+			p "The defense rests, your honor." 
+			ju "Very well. Would the defense like to call a witness to the stand?"
+			**Goto Courtney Testimony
 
 Courtney Testimony
+p "Yes, your honor."
+ju "Who would the defense like to call to the stand?"
+p "The defense shall call the defendant, Courtney Case."
+ju "Very well."
+**Fade to Courtney
+c "{i}*Sniff{\i}"
+p "Would the witness state their name and, er, occupation, for the court?"
+c "{\i}*Sniff sniff{i}"
+ju "Could the bailiff fetch a tissue please?"
+pr "Hmph. We don't have all day. Name and occupation, if you have one."
+c "C-c-courtney Case. Unemployed."
+j "Now, things are going to go a little differently, since you were the one to call the witness."
+j "You will have to examine her first. Try to ask general questions first, and then home into them like you do during a cross examination."
+j_whisper "Be strong Courtney. It's almost over."
+ju "Defense, begin cross examination."
+**Flash Testimony
+p "{i}Alright, what questions should I ask?{\i}
+$ questionlist = ["What is your relationship to the case?", "What is your interest in the Golden Diamond?", "What is your financial state?", "Where were you at the time of the incident?", "Did you steal anything?", "What is your account of the incident?"]
+menu(questionList):
+	"What question will you ask?"
+	0:
+		p "Ms. Case, what is your relationship to the case?"
+		pr "Hmph. I think we all know that, I don't see why you feel the need to ask."
+		c "D-d-defendant. That's the one accused of the crime?"
+		ju "That is correct, young Ms. Case. And I hope for your sake that the accusations on you are absolved."
+		c "{i}*Sniff{\i}"
+	1:
+		p "What is your interest in the Golden Diamond?"
+		c "I j-just liked seeing the jewelry. It all looked so pretty... even if we couldn't afford it."
+		j "..."
+		c "I wouldn't steal it though! I just wanted to look at it..."
+		pr "Hmph. Children."
+		p "When do you regularly visit the store?"
+		c "I usually have to go to school and help my dad, so I visit kind of late. The shopkeeper usually has to throw me out..."
+	2:
+		p "What is your financial state?"
+		ju "That's a bit of a difficult question for an 11 year old.
+		c "Well, I don't always get the dresses I want..."
+		c "And sometimes I have to borrow supplies in class..."
+		c "But my dad never lets me be hungry!"
+		c "He ensures that all my needs are met!"
+		pr "Members of the jury, I ask you to look at this girl and ask yourself if you truly think she deserves to live a life of need with her father, or instead a life where she can get everything she ever wanted?"
+		ju "Prosecution, please avoid speaking when it is not your turn to examine the witness."
+		p "{i}What did the prosecutor mean by that?{\i}"
+		j "..."
+	3:
+		p "Where were you, last Thursday, at 7:30 p.m.?
+		c "I was at the Golden Diamond."
+		p "R-really!"
+		c "The store always has a sale on Thursdays that causes the store to be open late."
+		p "The owner of the store claimed that it closed at 7:30."
+		c "T-the sign said the store was open though.
+		p "Did you see her inside the store?"
+		c "No... but I assumed she was going to the bathroom or looking for something."
+	4:
+		p "Did you steal anything?"
+		c "N-no!"
+		pr "Hmph. May it be noted in the court record that if it turns out that she did steal something, she committed perjury?"
+		p "{i}Even trying to help her is disadvantaging the case!{\i}
+	5:
+		p "What is your account of the incident?"
+		c "Well..."
+		c "I was just going through the store, looking at all the jewelry."
+		c "I didn't see Mrs. Stone, but I would hear her talking on the phone."
