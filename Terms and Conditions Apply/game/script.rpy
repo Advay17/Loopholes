@@ -20,7 +20,7 @@ label start:
     # These display lines of dialogue.
 
     s "I'm Saul Goodman."
-    s "Do you know that you have rights?" with vpunch
+    s "Do you know that you have rights? {w=0.1}Well, the constitution says you do." with vpunch
     # This ends the game.
 
     return

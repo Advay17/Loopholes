@@ -270,7 +270,7 @@ screen notepad():
                     value VariableInputValue("notepad_text", returnable=True)
                     copypaste True
                     multiline True
-                    layout "greedy"
+                    # layout "greedy"
                 key "input_enter" action If(renpy.get_screen("documents"), true=NullAction() )
                     # python:
                     #     pass
