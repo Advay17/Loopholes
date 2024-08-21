@@ -26,7 +26,7 @@ label start:
     show saul goodman
 
     s "I'm saul goodman."
-    s "Do you know you have rights? {w=0.1}Well, the constitution says you do."
+    s "Do you know you have rights? {w=0.1}Well, the constitution says you do.§ 34-1"
     # These display lines of dialogue.
 
 
